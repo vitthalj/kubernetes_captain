@@ -1,0 +1,22 @@
+#deployment file to deploy as a node port service 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-python-app
+  labels:
+    app: sample-python-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-python-app
+  template:
+    metadata:
+      labels:
+        app: sample-python-app
+    spec:
+      containers:
+      - name: python-app
+        image: vitthalj/sample_python_app:v1
+        ports:
+        - containerPort: 8000
