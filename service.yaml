@@ -7,6 +7,6 @@ spec:
   selector:
     app: sample-python-app
   ports:
-    - port: 80
-      targetPort: 8000
-      nodePort: 30000
+    - port: 80          # service level Exposes the Kubernetes Service on an internal IP address
+      targetPort: 8000  # pod level Represents the actual port your application container is listening on.
+      nodePort: 30000   # node level Opens a specific port on the physical or virtual IP address of every worker node in the cluster
