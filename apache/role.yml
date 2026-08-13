@@ -4,6 +4,6 @@ metadata:
   name: apache-role
   namespace: apache
 rules:
-  - apiGroups: [""]
-    resources: ["pods"]
-    verbs: ["get", "delete", "list"]
+  - apiGroups: ["", "apps", "authorization.k8s.io", "batch"] # This rule allows access to core resources, apps, authorization, and batch API groups
+    resources: ["pods", "services", "deployments", "hpas"] # This rule allows access to pods, services, deployments, and horizontal pod autoscalers
+    verbs: ["get", "delete", "list"] # This rule allows the user to get, delete, and list the specified resources
